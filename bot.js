@@ -4,10 +4,14 @@ const { Bot, InlineKeyboard } = require('grammy');
 const bot = new Bot(process.env.BOT_TOKEN);
 
 const MINI_APP_URL = 'https://albayrakogz.github.io/tma-game/';
+const DIRECT_LINK = 'https://t.me/minerkingdombot/game';
 
 // /start komutu — inline WebApp butonu ile karşılama
 bot.command('start', async (ctx) => {
-  const keyboard = new InlineKeyboard().webApp('🎮 Miner Kingdom\'ı Aç', MINI_APP_URL);
+  const keyboard = new InlineKeyboard()
+    .webApp('🎮 Miner Kingdom\'ı Aç', MINI_APP_URL)
+    .row()
+    .url('🔗 Arkadaşlarla Paylaş', DIRECT_LINK);
 
   await ctx.reply(
     `👋 Merhaba ${ctx.from?.first_name ?? 'Madenci'}!\n\n` +
@@ -27,7 +31,8 @@ bot.command('help', async (ctx) => {
     `📖 *Yardım*\n\n` +
     `/start - Oyunu başlat\n` +
     `/play - Oyunu aç\n` +
-    `/help - Bu mesajı göster`,
+    `/help - Bu mesajı göster\n\n` +
+    `🔗 Direkt link: ${DIRECT_LINK}`,
     { parse_mode: 'Markdown' }
   );
 });
