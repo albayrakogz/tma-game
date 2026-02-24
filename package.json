@@ -1,0 +1,27 @@
+{
+  "name": "tma-game",
+  "version": "1.0.0",
+  "description": "Miner Kingdom - Telegram Mini App Game Bot",
+  "main": "index.js",
+  "scripts": {
+    "bot": "node bot.js",
+    "dev": "node bot.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albayrakogz/tma-game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/albayrakogz/tma-game/issues"
+  },
+  "homepage": "https://github.com/albayrakogz/tma-game#readme",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "grammy": "^1.40.0"
+  }
+}
