@@ -3,7 +3,7 @@ const { Bot, InlineKeyboard } = require('grammy');
 
 const bot = new Bot(process.env.BOT_TOKEN);
 
-const MINI_APP_URL = 'https://albayrakogz.github.io/tma-game/?v=20260225-3';
+const MINI_APP_URL = 'https://albayrakogz.github.io/tma-game/?v=20260225-4';
 const DIRECT_LINK = 'https://t.me/minerkingdombot/game';
 
 // /start komutu — inline WebApp butonu ile karşılama
