@@ -1,11 +1,11 @@
-import { classNames, isRecord } from '@/css/classnames.js';
+import { classNames, isRecord, type ClassValue } from '@/css/classnames.js';
 
 export interface BlockFn {
-  (...mods: any): string;
+  (...mods: ClassValue[]): string;
 }
 
 export interface ElemFn {
-  (elem: string, ...mods: any): string;
+  (elem: string, ...mods: ClassValue[]): string;
 }
 
 /**
@@ -13,14 +13,13 @@ export interface ElemFn {
  * @param element - element name.
  * @param mod - mod to apply.
  */
-function applyMods(element: string, mod: any): string {
+function applyMods(element: string, mod: ClassValue): string {
   if (Array.isArray(mod)) {
     return classNames(mod.map(m => applyMods(element, m)));
   }
   if (isRecord(mod)) {
-    return classNames(
-      Object.entries(mod).map(([mod, v]) => v && applyMods(element, mod)),
-    );
+    const nested = Object.entries(mod).map(([modName, value]) => value ? applyMods(element, modName) : undefined);
+    return classNames(...nested);
   }
   const v = classNames(mod);
   return v && `${element}--${v}`;
@@ -31,7 +30,7 @@ function applyMods(element: string, mod: any): string {
  * @param element - element name.
  * @param mods - mod to apply.
  */
-function computeClassnames(element: string, ...mods: any): string {
+function computeClassnames(element: string, ...mods: ClassValue[]): string {
   return classNames(element, applyMods(element, mods));
 }
 

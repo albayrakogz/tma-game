@@ -9,12 +9,31 @@ import { List, Placeholder } from '@telegram-apps/telegram-ui';
 import { DisplayData, type DisplayDataRow } from '@/components/DisplayData/DisplayData.tsx';
 import { Page } from '@/components/Page.tsx';
 
+function toDisplayValue(value: unknown): DisplayDataRow['value'] {
+  if (value === null || value === undefined) {
+    return undefined;
+  }
+
+  if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    return value;
+  }
+
+  if (value instanceof Date) {
+    return value.toISOString();
+  }
+
+  return JSON.stringify(value);
+}
+
 function getUserRows(user: User): DisplayDataRow[] {
-  return Object.entries(user).map(([title, value]) => ({ title, value }));
+  return Object.entries(user).map(([title, value]) => ({
+    title,
+    value: toDisplayValue(value),
+  }));
 }
 
 export const InitDataPage: FC = () => {
-  const initDataRaw = useSignal(initData.raw);
+  const initDataRaw = useSignal<string | undefined>(initData.raw);
   const initDataState = useSignal(initData.state);
 
   const initDataRows = useMemo<DisplayDataRow[] | undefined>(() => {
@@ -22,12 +41,10 @@ export const InitDataPage: FC = () => {
       return;
     }
     return [
-      { title: 'raw', value: initDataRaw },
+      { title: 'raw', value: toDisplayValue(initDataRaw) },
       ...Object.entries(initDataState).reduce<DisplayDataRow[]>((acc, [title, value]) => {
-        if (value instanceof Date) {
-          acc.push({ title, value: value.toISOString() });
-        } else if (!value || typeof value !== 'object') {
-          acc.push({ title, value });
+        if (value instanceof Date || !value || typeof value !== 'object') {
+          acc.push({ title, value: toDisplayValue(value) });
         }
         return acc;
       }, []),
@@ -49,7 +66,10 @@ export const InitDataPage: FC = () => {
   const chatRows = useMemo<DisplayDataRow[] | undefined>(() => {
     return !initDataState?.chat
       ? undefined
-      : Object.entries(initDataState.chat).map(([title, value]) => ({ title, value }));
+      : Object.entries(initDataState.chat).map(([title, value]) => ({
+        title,
+        value: toDisplayValue(value),
+      }));
   }, [initDataState]);
 
   if (!initDataRows) {

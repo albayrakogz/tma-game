@@ -37,16 +37,15 @@ export async function init(options: {
     mockTelegramEnv({
       onEvent(event, next) {
         if (event.name === 'web_app_request_theme') {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          let tp: any = {};
-          if (firstThemeSent) {
-            tp = themeParams.state();
-          } else {
+          const tp = firstThemeSent
+            ? themeParams.state()
+            : retrieveLaunchParams().tgWebAppThemeParams;
+
+          if (!firstThemeSent) {
             firstThemeSent = true;
-            tp ||= retrieveLaunchParams().tgWebAppThemeParams;
           }
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          return emitEvent('theme_changed', { theme_params: tp as any });
+
+          return emitEvent('theme_changed', { theme_params: tp });
         }
 
         if (event.name === 'web_app_request_safe_area') {
@@ -69,8 +68,7 @@ export async function init(options: {
   }
 
   if (viewport.mount.isAvailable()) {
-    viewport.mount().then(() => {
-      viewport.bindCssVars();
-    });
+    await viewport.mount();
+    viewport.bindCssVars();
   }
 }
