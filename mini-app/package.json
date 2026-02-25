@@ -6,6 +6,7 @@
   "homepage": "https://albayrakogz.github.io/tma-game",
   "scripts": {
     "deploy": "gh-pages -d dist",
+    "deploy:cdn": "cross-env VITE_BASE_URL=https://ee6ee400b3.tapps.global/latest npm run build && mate deploy upload",
     "dev": "vite",
     "dev:https": "cross-env HTTPS=true vite",
     "build": "tsc --noEmit && vite build",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.23.0",
+    "@telegram-apps/mate": "^0.0.29",
     "@types/node": "^20.19.11",
     "@types/react": "^18.3.24",
     "@types/react-dom": "^18.3.7",

@@ -1,0 +1,5 @@
+deploy:
+  projectId: 117
+  directory: dist
+  token: b4f1bafc2c0ba6f8a3de4349a90ed7433567bc6f22e01932efb4bf153ad44539
+  tag: latest

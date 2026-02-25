@@ -5,7 +5,9 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/tma-game/',
+  // CDN deploy: VITE_BASE_URL=https://ee6ee400b3.tapps.global/latest npm run build
+  // GitHub Pages: uses /tma-game/ by default
+  base: process.env.VITE_BASE_URL || '/tma-game/',
   css: {
     preprocessorOptions: {
       scss: {
