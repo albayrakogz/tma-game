@@ -108,10 +108,10 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   const tap = useCallback((count = 1) => {
     setEnergy((prev) => {
-      const actual = Math.min(count * coinsPerTap, prev);
-      if (actual <= 0) return prev;
-      setBalance((b) => b + actual);
-      return prev - actual;
+      const taps = Math.min(count, prev);
+      if (taps <= 0) return prev;
+      setBalance((b) => b + taps * coinsPerTap);
+      return prev - taps;
     });
   }, [coinsPerTap]);
 
