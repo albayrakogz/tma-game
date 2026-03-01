@@ -1,10 +1,10 @@
 const LEAGUE_BONUS: Record<string, string> = {
   Bronze: '5%',
-  Silver: '8%',
-  Gold: '12%',
-  Platinum: '18%',
-  Diamond: '25%',
-  Master: '35%',
+  Silver: '7%',
+  Gold: '10%',
+  Platinum: '12%',
+  Diamond: '15%',
+  Master: '20%',
 };
 
 const MILESTONES = [

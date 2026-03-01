@@ -2,11 +2,11 @@ import { useGame } from '@/contexts/GameContext.tsx';
 
 const LEAGUE_TIERS = [
   { name: 'Bronze', emoji: '🥉', threshold: 0, color: '#cd7f32' },
-  { name: 'Silver', emoji: '🥈', threshold: 1_000, color: '#c0c0c0' },
-  { name: 'Gold', emoji: '🥇', threshold: 10_000, color: '#ffd700' },
-  { name: 'Platinum', emoji: '💠', threshold: 100_000, color: '#e5e4e2' },
+  { name: 'Silver', emoji: '🥈', threshold: 10_000, color: '#c0c0c0' },
+  { name: 'Gold', emoji: '🥇', threshold: 50_000, color: '#ffd700' },
+  { name: 'Platinum', emoji: '💠', threshold: 200_000, color: '#e5e4e2' },
   { name: 'Diamond', emoji: '💎', threshold: 1_000_000, color: '#b9f2ff' },
-  { name: 'Master', emoji: '👑', threshold: 10_000_000, color: '#ff6b6b' },
+  { name: 'Master', emoji: '👑', threshold: 5_000_000, color: '#ff6b6b' },
 ];
 
 const LEADERBOARD = [

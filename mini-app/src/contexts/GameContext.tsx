@@ -41,16 +41,16 @@ interface GameContextValue extends GameState {
 const GameContext = createContext<GameContextValue | null>(null);
 
 function getLeague(balance: number): string {
-  if (balance >= 10_000_000) return 'Master';
+  if (balance >= 5_000_000) return 'Master';
   if (balance >= 1_000_000) return 'Diamond';
-  if (balance >= 100_000) return 'Platinum';
-  if (balance >= 10_000) return 'Gold';
-  if (balance >= 1_000) return 'Silver';
+  if (balance >= 200_000) return 'Platinum';
+  if (balance >= 50_000) return 'Gold';
+  if (balance >= 10_000) return 'Silver';
   return 'Bronze';
 }
 
 function upgradePrice(base: number, level: number): number {
-  return Math.floor(base * Math.pow(2, level));
+  return Math.floor(base * (2 ** level));
 }
 
 const DEFAULT_UPGRADES: Record<string, Upgrade> = {

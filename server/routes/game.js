@@ -5,6 +5,10 @@ const { authMiddleware } = require('../middleware/auth');
 const router = express.Router();
 router.use(authMiddleware);
 
+// Anti-abuse constants
+const MAX_TAPS_PER_REQUEST = 20;
+const MIN_TAP_INTERVAL_MS = 100;
+
 // In-memory rate limit tracker: userId -> lastTapTime
 const lastTapTimes = new Map();
 
@@ -111,13 +115,13 @@ router.post('/tap', (req, res) => {
     return res.status(400).json({ error: 'Invalid tap count' });
   }
 
-  // Cap at 20 taps per request
-  if (taps > 20) taps = 20;
+  // Cap taps per request to prevent abuse
+  if (taps > MAX_TAPS_PER_REQUEST) taps = MAX_TAPS_PER_REQUEST;
 
-  // Rate limiting: max 1 request per 100ms
+  // Rate limiting: enforce minimum interval between tap requests
   const now = Date.now();
   const lastTap = lastTapTimes.get(userId);
-  if (lastTap && now - lastTap < 100) {
+  if (lastTap && now - lastTap < MIN_TAP_INTERVAL_MS) {
     // Flag suspicious activity
     db.prepare('UPDATE users SET fraud_score = fraud_score + 1 WHERE id = ?').run(userId);
 
