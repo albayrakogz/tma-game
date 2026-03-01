@@ -3,8 +3,8 @@ import { CURRENCY_ICON } from '../game/constants';
 import { LEAGUES } from '../game/types';
 import './AdminPage.css';
 
-// Demo-only password — replace with proper auth in production
-const ADMIN_PASSWORD = 'admin123';
+// Demo-only password — in production, use server-side admin auth with proper session management
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD || 'admin123';
 
 interface DemoUser {
   id: number;

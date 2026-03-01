@@ -75,8 +75,7 @@ export function FrensPage() {
         onClick={() => {
           const code = state.user?.referral_code || 'DEMO123';
           const text = `Join me on TapRealm! Use my code: ${code}`;
-          const win = window as unknown as Record<string, unknown>;
-          const tg = win.Telegram as { WebApp?: { openTelegramLink: (url: string) => void } } | undefined;
+          const tg = (window as { Telegram?: { WebApp?: { openTelegramLink: (url: string) => void } } }).Telegram;
           if (tg?.WebApp) {
             tg.WebApp.openTelegramLink(
               `https://t.me/share/url?url=${encodeURIComponent(text)}`
