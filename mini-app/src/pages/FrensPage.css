@@ -1,0 +1,178 @@
+.frens-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #0a0a0f;
+  padding: 20px 16px 100px;
+  color: #fff;
+}
+
+.frens-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.frens-header h1 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 6px;
+}
+
+.frens-header p {
+  font-size: 14px;
+  color: #888;
+  margin: 0;
+}
+
+/* Reward tiers */
+.reward-tiers {
+  background: #12121e;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.reward-tiers h3 {
+  font-size: 14px;
+  color: #FFB800;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tier-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #1a1a2e;
+}
+
+.tier-row:last-child {
+  border-bottom: none;
+}
+
+.tier-label {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.tier-reward {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFD700;
+}
+
+/* League bonuses */
+.league-bonuses {
+  background: #12121e;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.league-bonuses h3 {
+  font-size: 14px;
+  color: #FFB800;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bonus-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.bonus-league {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.bonus-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #00E5FF;
+}
+
+/* Friends list */
+.friends-section h3 {
+  font-size: 16px;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.friend-card {
+  display: flex;
+  align-items: center;
+  background: #12121e;
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.friend-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFB800, #FF6B00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.friend-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.friend-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.friend-status {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.friend-reward {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFD700;
+}
+
+.no-friends {
+  text-align: center;
+  color: #555;
+  font-size: 14px;
+  padding: 24px 0;
+}
+
+/* CTA */
+.invite-btn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #FFB800, #FF8C00);
+  border: none;
+  border-radius: 12px;
+  color: #0a0a0f;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.invite-btn:active {
+  transform: scale(0.97);
+}
