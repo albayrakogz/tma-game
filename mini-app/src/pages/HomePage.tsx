@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useGame } from '@/contexts/GameContext.tsx';
 import { EnergyBar } from '@/components/EnergyBar.tsx';
 
@@ -13,6 +14,7 @@ let floatId = 0;
 
 export function HomePage() {
   const { balance, energy, coinsPerTap, league, rank, tap } = useGame();
+  const navigate = useNavigate();
   const [floats, setFloats] = useState<FloatingNumber[]>([]);
   const [pressed, setPressed] = useState(false);
   const coinRef = useRef<HTMLDivElement>(null);
@@ -68,15 +70,31 @@ export function HomePage() {
           alignItems: 'center',
           justifyContent: 'space-between',
         }}>
-          <div style={{
-            background: 'var(--game-card)',
-            borderRadius: 12,
-            padding: '6px 14px',
-            fontSize: 13,
-            color: 'var(--game-gold)',
-            fontWeight: 600,
-          }}>
-            🏆 {league}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div
+              onClick={() => navigate('/league')}
+              style={{
+                background: 'var(--game-card)',
+                borderRadius: 12,
+                padding: '6px 14px',
+                fontSize: 13,
+                color: 'var(--game-gold)',
+                fontWeight: 600,
+                cursor: 'pointer',
+              }}>
+              🏆 {league}
+            </div>
+            <div
+              onClick={() => navigate('/squad')}
+              style={{
+                background: 'var(--game-card)',
+                borderRadius: 12,
+                padding: '6px 10px',
+                fontSize: 13,
+                cursor: 'pointer',
+              }}>
+              🛡️
+            </div>
           </div>
           <div style={{
             fontSize: 13,
