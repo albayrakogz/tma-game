@@ -112,7 +112,7 @@ router.post('/claim', (req, res) => {
   res.json({
     task_id,
     reward: task.reward,
-    balance: updatedUser.balance + task.reward,
+    balance: updatedUser.balance,
     total_earned: updatedUser.total_earned,
   });
 });
