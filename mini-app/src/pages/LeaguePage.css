@@ -1,0 +1,209 @@
+.league-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #0a0a0f;
+  padding: 20px 16px 100px;
+  color: #fff;
+}
+
+.league-page h1 {
+  font-size: 24px;
+  margin: 0 0 4px;
+}
+
+.league-page h3 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+  color: #ccc;
+}
+
+.league-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.league-header p {
+  color: #888;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Current rank */
+.current-rank {
+  text-align: center;
+  padding: 16px;
+  background: #12121e;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.current-rank .rank-label {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.current-rank .rank-value {
+  font-size: 28px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+/* League progress */
+.league-next-progress {
+  background: #12121e;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.league-next-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.league-next-bar {
+  height: 8px;
+  background: #1a1a2e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.league-next-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s;
+}
+
+/* Tiers */
+.league-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.league-card {
+  display: flex;
+  align-items: center;
+  background: #12121e;
+  border-radius: 12px;
+  padding: 14px;
+  gap: 12px;
+  border-left: 4px solid transparent;
+  transition: box-shadow 0.3s;
+}
+
+.league-card.current {
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.25);
+}
+
+.league-icon {
+  font-size: 32px;
+  width: 42px;
+  text-align: center;
+}
+
+.league-card-info {
+  flex: 1;
+}
+
+.league-card-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.league-card-req {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.league-card-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #1a1a2e;
+}
+
+.league-card-status.unlocked {
+  color: #4caf50;
+}
+
+.league-card-status.locked {
+  color: #888;
+}
+
+.league-card-status.active {
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Leaderboard */
+.global-leaderboard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lb-row {
+  display: flex;
+  align-items: center;
+  background: #12121e;
+  border-radius: 10px;
+  padding: 10px 12px;
+  gap: 10px;
+}
+
+.lb-row.me {
+  border: 1px solid #FFD700;
+}
+
+.lb-rank {
+  font-size: 14px;
+  font-weight: 700;
+  width: 28px;
+  text-align: center;
+}
+
+.lb-rank.gold { color: #FFD700; }
+.lb-rank.silver { color: #C0C0C0; }
+.lb-rank.bronze-rank { color: #CD7F32; }
+
+.lb-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD700, #FF8C00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+}
+
+.lb-info {
+  flex: 1;
+}
+
+.lb-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.lb-league {
+  font-size: 11px;
+  color: #888;
+}
+
+.lb-score {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFD700;
+}

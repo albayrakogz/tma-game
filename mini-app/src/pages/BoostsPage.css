@@ -1,0 +1,189 @@
+.boosts-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background: #0a0a0f;
+  padding: 20px 16px 100px;
+  color: #fff;
+}
+
+.boosts-page h1 {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+.boosts-section {
+  margin-bottom: 24px;
+}
+
+.boosts-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #FFB800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Free booster cards */
+.boost-card {
+  display: flex;
+  align-items: center;
+  background: #12121e;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+  border: 1px solid #1a1a2e;
+}
+
+.boost-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a1a2e, #252540);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.boost-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.boost-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.boost-desc {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.boost-cooldown {
+  font-size: 11px;
+  color: #FF8C00;
+  margin-top: 2px;
+}
+
+.boost-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.boost-btn.ready {
+  background: linear-gradient(135deg, #00E5FF, #00B8D4);
+  color: #0a0a0f;
+}
+
+.boost-btn.ready:active {
+  transform: scale(0.95);
+}
+
+.boost-btn.cooldown {
+  background: #1a1a2e;
+  color: #555;
+  cursor: default;
+}
+
+/* Upgrade cards */
+.upgrade-card {
+  display: flex;
+  align-items: center;
+  background: #12121e;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 8px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.upgrade-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, rgba(255, 184, 0, 0.2), rgba(255, 140, 0, 0.05));
+  z-index: -1;
+}
+
+.upgrade-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1a1a2e, #252540);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.upgrade-info {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.upgrade-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.upgrade-detail {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.upgrade-level {
+  font-size: 11px;
+  color: #00E5FF;
+  margin-top: 2px;
+}
+
+.upgrade-buy-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #FFB800, #FF8C00);
+  color: #0a0a0f;
+}
+
+.upgrade-buy-btn:active {
+  transform: scale(0.95);
+}
+
+.upgrade-buy-btn:disabled {
+  background: #1a1a2e;
+  color: #555;
+  cursor: default;
+}
+
+.upgrade-buy-btn:disabled:active {
+  transform: none;
+}
+
+.upgrade-maxed {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #4CAF50;
+}
