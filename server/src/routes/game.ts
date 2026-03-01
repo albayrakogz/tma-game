@@ -118,7 +118,7 @@ router.post('/game/tap', requireAuth, (req: AuthRequest, res: Response): void =>
   ).run(userId, count, coinsEarned, energySpent);
 
   // Update squad contribution if in a squad
-  if (user.league) {
+  {
     const membership = db.prepare(
       'SELECT squad_id FROM squad_memberships WHERE user_id = ?'
     ).get(userId) as { squad_id: number } | undefined;
@@ -225,7 +225,8 @@ router.post('/game/boost/claim', requireAuth, (req: AuthRequest, res: Response):
     return;
   }
 
-  const cooldownHours = 8;
+  const cooldownSetting = db.prepare("SELECT value FROM app_settings WHERE key = 'boost_cooldown_hours'").get() as { value: string } | undefined;
+  const cooldownHours = cooldownSetting ? parseInt(cooldownSetting.value, 10) : 8;
   const nextAvailable = new Date(Date.now() + cooldownHours * 60 * 60 * 1000).toISOString();
 
   db.prepare(
