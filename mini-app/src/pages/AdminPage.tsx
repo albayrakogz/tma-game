@@ -3,6 +3,7 @@ import { CURRENCY_ICON } from '../game/constants';
 import { LEAGUES } from '../game/types';
 import './AdminPage.css';
 
+// Demo-only password — replace with proper auth in production
 const ADMIN_PASSWORD = 'admin123';
 
 interface DemoUser {
