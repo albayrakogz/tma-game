@@ -6,18 +6,18 @@ const bot = new Bot(process.env.BOT_TOKEN);
 const MINI_APP_URL = 'https://albayrakogz.github.io/tma-game/?v=20260225-5';
 const DIRECT_LINK = 'https://t.me/minerkingdombot/game';
 
-// /start komutu — inline WebApp butonu ile karşılama
+// /start command — welcome message with WebApp button
 bot.command('start', async (ctx) => {
   const keyboard = new InlineKeyboard()
-    .webApp('🎮 Miner Kingdom\'ı Aç', MINI_APP_URL)
+    .webApp('🔮 Open TapRealm', MINI_APP_URL)
     .row()
-    .url('🔗 Arkadaşlarla Paylaş', DIRECT_LINK);
+    .url('🔗 Share with Friends', DIRECT_LINK);
 
   await ctx.reply(
-    `👋 Merhaba ${ctx.from?.first_name ?? 'Madenci'}!\n\n` +
-    `⛏️ *Miner Kingdom*'a hoş geldin!\n\n` +
-    `Madencilik yap, kaynak topla ve krallığını büyüt. ` +
-    `Aşağıdaki butona basarak oyuna başlayabilirsin:`,
+    `👋 Hey ${ctx.from?.first_name ?? 'Tapper'}!\n\n` +
+    `🔮 *Welcome to TapRealm!*\n\n` +
+    `Tap the orb, earn Orbs, upgrade your power, and climb the leagues. ` +
+    `Press the button below to start playing:`,
     {
       parse_mode: 'Markdown',
       reply_markup: keyboard,
@@ -25,32 +25,32 @@ bot.command('start', async (ctx) => {
   );
 });
 
-// /help komutu
+// /help command
 bot.command('help', async (ctx) => {
   await ctx.reply(
-    `📖 *Yardım*\n\n` +
-    `/start - Oyunu başlat\n` +
-    `/play - Oyunu aç\n` +
-    `/help - Bu mesajı göster\n\n` +
-    `🔗 Direkt link: ${DIRECT_LINK}`,
+    `📖 *Help*\n\n` +
+    `/start - Start the game\n` +
+    `/play - Open TapRealm\n` +
+    `/help - Show this message\n\n` +
+    `🔗 Direct link: ${DIRECT_LINK}`,
     { parse_mode: 'Markdown' }
   );
 });
 
-// /play komutu
+// /play command
 bot.command('play', async (ctx) => {
-  const keyboard = new InlineKeyboard().webApp('🎮 Oyuna Gir', MINI_APP_URL);
-  await ctx.reply('Hazır mısın? 🚀', { reply_markup: keyboard });
+  const keyboard = new InlineKeyboard().webApp('🔮 Play TapRealm', MINI_APP_URL);
+  await ctx.reply('Ready to tap? 🚀', { reply_markup: keyboard });
 });
 
-// Bilinmeyen mesajlara inline butonla cevap
+// Default handler — respond with game button
 bot.on('message', async (ctx) => {
-  const keyboard = new InlineKeyboard().webApp('🎮 Oyunu Aç', MINI_APP_URL);
-  await ctx.reply('Oynamak için butona bas! 👇', { reply_markup: keyboard });
+  const keyboard = new InlineKeyboard().webApp('🔮 Open TapRealm', MINI_APP_URL);
+  await ctx.reply('Tap the button to play! 👇', { reply_markup: keyboard });
 });
 
 bot.start({
-  onStart: () => console.log(`✅ @${bot.botInfo.username} başlatıldı!`),
+  onStart: () => console.log(`✅ @${bot.botInfo.username} started!`),
 });
 
 process.once('SIGINT', () => bot.stop());

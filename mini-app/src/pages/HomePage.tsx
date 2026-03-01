@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useGame } from '../game/context';
 import { CURRENCY_ICON, GAME_NAME } from '../game/constants';
 import { LEAGUES } from '../game/types';
@@ -17,6 +18,7 @@ export function HomePage() {
   const [isPressed, setIsPressed] = useState(false);
   const [glowPulse, setGlowPulse] = useState(false);
   const nextIdRef = useRef(0);
+  const navigate = useNavigate();
   const { user } = state;
 
   const currentLeague = LEAGUES.find(l => l.name === user?.league) || LEAGUES[0];
@@ -60,6 +62,16 @@ export function HomePage() {
 
   return (
     <div className="home-page">
+      {/* Quick links */}
+      <div className="home-quick-links">
+        <button className="quick-link" onClick={() => navigate('/squad')}>
+          🛡️ {user.squad_id ? 'My Squad' : 'Join a Squad →'}
+        </button>
+        <button className="quick-link league-link" onClick={() => navigate('/league')}>
+          🏆 Leagues
+        </button>
+      </div>
+
       {/* Balance */}
       <div className="balance-section">
         <div className="balance-amount">
